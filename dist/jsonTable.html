@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+		content="width=device-width,
+				initial-scale=1,
+				shrink-to-fit=no">
+<title>
+	load data from json file
+	into a bootstrap table
+</title>
+
+<!-- Include Bootstrap for styling -->
+<link rel="stylesheet"
+		href="css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container table-width table-padding">
+	<h1 class="text text-primary text-center">
+	SkulCatch
+	</h1>
+	<h6 class="text text-primary text-center">
+        Employee Details
+	</h6>
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
+		<tr>
+			<th>
+			<span class="text-primary">
+				Employee ID
+			</span>
+			</th>
+			<th>
+			<span class="text-primary">
+				Employee Name
+			</span>
+			</th>
+			<th>
+			<span class="text-primary">
+				Joining Date
+			</span>
+			</th>
+		</tr>
+		</thead>
+        <tbody id="myTable">
+
+        </tbody>
+	</table>
+</div>
+
+<!-- Include jQuery and other required
+files for Bootstrap -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	// Specify the JSON data to be displayed
+	var mydata =
+	[
+		{
+		"id": "24323",
+		"name": "Vinitha P",
+		"date": "25/5/1996"
+		},
+		{
+		"id": "24564",
+		"name": "Rajasekar P",
+		"date": "17/5/1989"
+		},
+		{
+		"id": "24345",
+		"name": "Anitha A",
+		"date": "1/5/1993"
+		},
+		{
+		"id": "24874",
+		"name": "Devi P",
+		"date": "14/5/1993"
+		},
+		{
+		"id": "24323",
+		"name": "Balu V",
+		"date": "13/5/1967"
+		},
+        {
+		"id": "24323",
+		"name": "Sankari V",
+		"date": "13/5/1967"
+		}
+	];
+    buildTable(mydata);
+
+    function buildTable(data){
+        console.log(data);
+        var table = document.getElementById("myTable");
+        console.log(table)
+        console.log(data.length)
+        for(var i = 0; i < data.length; i++){
+            var row = `<tr>
+                            <td>${data[i].id}</td>
+                            <td>${data[i].name}</td>
+                            <td>${data[i].date}</td>
+                        </tr>`
+            console.log("row data: " + row)
+            table.innerHTML += row;
+
+            console.log("table data: " + table)
+        }
+    }
+
+</script>
+</body>
+</html>
